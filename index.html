@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network and Transport Layers</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3d1db;
+            color: #4a4a4a;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #b95271;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Section Styling */
+        section {
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: #ffeef2;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+		
+		img {
+            display: block;
+            margin: 0 auto;  /* Remove margin */
+            width: 80%;      /* Set the image width */
+            max-width: 100%; /* Ensure it does not overflow */
+            height: auto;    /* Maintain aspect ratio */
+        }
+
+        h2 {
+            color: #bd4267;
+            border-bottom: 2px solid #d14c74;
+            padding-bottom: 5px;
+        }
+		
+		.parts {
+			text-align: center;
+		}
+
+        p, ul, ol {
+            margin: 15px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #b95271;
+            color: white;
+            margin-top: 30px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            section {
+                padding: 15px;
+                margin: 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task 3</h1>
+        <p><i>Network and Transport Layers</i></p>
+    </header>
+	
+	<h2 class="parts">Theoretical part</h2>
+    <section>
+        <h2>TCP Protocol</h2>
+        <p>
+            TCP (Transmission Control Protocol) is one of the most widely used protocols in networking. It is a connection-oriented protocol, 
+            meaning it establishes a dedicated connection between devices before transmitting data. 
+            TCP guarantees the reliable delivery of data by using acknowledgments, retransmissions, and error checking.
+        </p>
+        <p>Key features of TCP:</p>
+        <ul>
+            <li><strong>Reliable Data Transfer:</strong> TCP ensures that all data is delivered correctly and in order.</li>
+            <li><strong>Flow Control:</strong> Manages the rate of data transmission to prevent overwhelming the receiver.</li>
+            <li><strong>Congestion Control:</strong> Reduces transmission rates during network congestion to ensure fair resource usage.</li>
+            <li><strong>Applications:</strong> Used for web browsing, email, file transfers, and database communication.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>UDP Protocol</h2>
+        <p>
+            UDP (User Datagram Protocol) is a simpler, connectionless protocol designed for fast and lightweight communication. 
+            Unlike TCP, it does not establish a connection before data transmission, nor does it guarantee the delivery or correctness of data.
+        </p>
+        <p>Key features of UDP:</p>
+        <ul>
+            <li><strong>Speed over Reliability:</strong> Data is sent without waiting for acknowledgment.</li>
+            <li><strong>Low Overhead:</strong> Fewer checks and controls compared to TCP, making it efficient for real-time applications.</li>
+            <li><strong>Applications:</strong> Ideal for live video/audio streaming, online gaming, and DNS queries.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>TCP Protocol Parameters</h2>
+        <ul>
+            <li><strong>Sequence Number:</strong> Tracks the order of packets to reassemble data correctly.</li>
+            <li><strong>Acknowledgment Number:</strong> Confirms the receipt of packets by the recipient.</li>
+            <li><strong>Window Size:</strong> Determines how much data can be sent before requiring acknowledgment.</li>
+            <li><strong>Checksum:</strong> Ensures the integrity of transmitted data by verifying the content.</li>
+            <li><strong>Flags:</strong> Control bits in the TCP header (e.g., SYN, ACK, FIN) to manage connection state.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>UDP Protocol Parameters</h2>
+        <ul>
+            <li><strong>Source Port:</strong> Identifies the application or process that sent the data.</li>
+            <li><strong>Destination Port:</strong> Identifies the application or process on the receiving device.</li>
+            <li><strong>Length:</strong> Specifies the size of the UDP datagram.</li>
+            <li><strong>Checksum:</strong> Provides basic error detection to verify data integrity.</li>
+        </ul>
+    </section>
+	
+	<section>
+        <h2>TCP Connection</h2>
+        <p>
+            TCP connections are essential for ensuring reliable communication between devices. 
+            A connection is established and maintained throughout the data exchange process to track packets and ensure accurate delivery.
+        </p>
+    </section>
+
+    <section>
+        <h2>Three-Way Handshake</h2>
+        <p>The three-way handshake is the method TCP uses to establish a connection between a client and a server. It involves three steps:</p>
+        <ol>
+            <li><strong>Step 1 - SYN:</strong> The client sends a SYN (synchronize) message to initiate a connection.</li>
+            <li><strong>Step 2 - SYN-ACK:</strong> The server responds with a SYN-ACK (synchronize-acknowledge) message to confirm and initiate its side of the connection.</li>
+            <li><strong>Step 3 - ACK:</strong> The client sends an ACK (acknowledge) message to confirm the connection is established.</li>
+        </ol>
+		<p>This process ensures both devices are ready for communication and agree on initial sequence numbers.</p>
+    </section>
+	
+	<section>
+        <h2>Connection Establishment</h2>
+        <p>
+            The process of connection establishment ensures that both the sender and receiver are prepared to communicate. 
+            During this phase, the devices exchange information such as sequence numbers and agree on parameters for the session.
+        </p>
+    </section>
+
+    <section>
+        <h2>Connection Release</h2>
+        <p>
+            TCP uses a graceful shutdown mechanism to release connections. This process ensures all data is delivered before termination. 
+            The steps include:
+        </p>
+        <ol>
+            <li>The initiating device sends a FIN packet to signal the end of transmission.</li>
+            <li>The receiving device acknowledges the FIN and sends its own FIN when ready to close.</li>
+            <li>The initiating device acknowledges the FIN, completing the process.</li>
+        </ol>
+        <p>
+            This ensures that all data has been transmitted and both sides agree to terminate the connection.
+        </p>
+    </section>
+
+    <section>
+        <h2>Ports</h2>
+        <p>
+            Ports are numerical identifiers that allow multiple applications to use a single network connection. 
+            Each service is assigned a unique port number, enabling the operating system to route data to the correct application.
+        </p>
+        <p>Examples of common port numbers:</p>
+        <ul>
+            <li><strong>80:</strong> HTTP (web browsing)</li>
+            <li><strong>443:</strong> HTTPS (secure web browsing)</li>
+            <li><strong>21:</strong> FTP (file transfer)</li>
+            <li><strong>25:</strong> SMTP (email sending)</li>
+            <li><strong>53:</strong> DNS (domain name resolution)</li>
+        </ul>
+    </section>
+	
+	<h2 class="parts">Practical part</h2>
+	<section>
+        <h2>2.1.</h2>
+        <p>
+            Enter www.google.com webpage using preferred browser. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection (close the browser) and check local port status.
+        </p>
+        <img src="img/img01.png" style="width: 80%;"><br>
+		<img src="img/img02.png" style="width: 80%;"><br>
+		<img src="img/img03.png" style="width: 80%;"><br>
+		<img src="img/img04.png" style="width: 80%;"><br>
+		<img src="img/img05.png" style="width: 80%;">
+    </section>
+	
+	<section>
+        <h2>2.2.</h2>
+        <p>
+			Copy the file from your local host to studife.it.p.lodz.pl server using ftp protocol. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.
+        </p>
+		<img src="img/img06.png" style="width: 80%;"><br>
+		<img src="img/img07.png" style="width: 80%;"><br>
+		<img src="img/img08.png" style="width: 80%;"><br>
+    </section>
+	
+	<section>
+        <h2>2.3.</h2>
+        <p>
+			Copy the file from your local host to studife.it.p.lodz.pl server using scp or sftp protocol. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.
+		</p>
+		<img src="img/img09.png" style="width: 80%;"><br>
+		<img src="img/img10.png" style="width: 80%;"><br>
+    </section>
+	
+	<section>
+        <h2>2.4.</h2>
+        <p>
+			Use Wireshark to check which protocol and port is used in transport layer by DNS protocol.
+		</p>
+		<img src="img/img11.png" style="width: 80%;"><br>
+    </section>
+	
+
+
+    <footer>
+        <p>ife24_14</p>
+    </footer>
+</body>
+</html>
